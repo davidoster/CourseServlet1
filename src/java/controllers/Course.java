@@ -19,6 +19,7 @@ import javax.websocket.Session;
  * @author mac
  */
 public class Course extends HttpServlet {
+    private models.Course course;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,6 +30,12 @@ public class Course extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    public Course() {
+        course = new models.Course();
+        course.setTitle("CB10 Full Time Java");
+    }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -72,8 +79,8 @@ public class Course extends HttpServlet {
 //            out.println("Title : " + request.getParameter("title"));
             
             HttpSession s = request.getSession();
-            models.Course course = new models.Course();
-            course.setTitle("CB10 Full Time Java");
+            
+            
             s.setAttribute("aCourse", course);
             out.println("Title : " + course.getTitle());
             
