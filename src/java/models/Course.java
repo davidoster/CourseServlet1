@@ -21,7 +21,7 @@ public class Course {
     private Date start_date;
     private Date end_date;
     
-
+    
     @Override
     public String toString() {
         return "Title of Course : " + title + ", Stream Of Course : " + stream + ", Type Of Course : " + type + ", Starting Date : " + start_date + ", End Date : " + end_date + '}' + "\n";

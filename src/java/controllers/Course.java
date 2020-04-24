@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  *
@@ -39,6 +41,7 @@ public class Course extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Course at " + request.getContextPath() + "</h1>");
+            
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,7 +69,14 @@ public class Course extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Course at " + request.getContextPath() + "</h1>");
-            out.println("Title : " + request.getParameter("title"));
+//            out.println("Title : " + request.getParameter("title"));
+            
+            HttpSession s = request.getSession();
+            models.Course course = new models.Course();
+            course.setTitle("CB10 Full Time Java");
+            s.setAttribute("aCourse", course);
+            out.println("Title : " + course.getTitle());
+            
             out.println("</body>");
             out.println("</html>");
         }

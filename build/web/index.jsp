@@ -13,12 +13,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <% String xyz = "XYZ"; %>
+        <% 
+            String xyz1 = "XYZ"; 
+            Course course = new Course();
+            course.setTitle("XYZ");
+        %>
+        <jsp:useBean id="xyz" class="models.Course" scope="application" />
+        <jsp:setProperty name="xyz" property="title" value="XYZ" />
+        Title : ${xyz.title}
+        
+        Session aCourse : <%= session.getAttribute("aCourse") %>
         <h1>Welcome to the School!</h1>
         <form action="index.jsp" method="POST">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" maxlength="50" value="${application.xyz}" required>
+                <input type="text" class="form-control" id="title" name="title" maxlength="50" value="<%= xyz1 %>" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
