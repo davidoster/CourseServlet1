@@ -23,6 +23,11 @@
         Title : ${xyz.title}
         
         Session aCourse : <%= session.getAttribute("aCourse") %>
+        <% 
+            ((models.Course)(session.getAttribute("aCourse"))).setTitle("KOUKOUROUKOU");
+//            course2.setTitle("KOUKOUROUKOU");
+        %>
+        <%= ((models.Course)(session.getAttribute("aCourse"))).getTitle() %>
         <h1>Welcome to the School!</h1>
         <form action="index.jsp" method="POST">
             <div class="form-group">
